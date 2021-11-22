@@ -1,15 +1,20 @@
 # ElekTrain
 
-Om te bouwen:
+Dependencies (gebruikte libraries) downloaden:
+
+    go get
+
+Bouwen:
 
     go build
 
-Nadien uitvoeren kan met
+Nadien uitvoeren:
 
     ./elektrain
 
-Of om meteen uit te voeren:
-
+Of zonder een executable te bouwen:
+    
+    go get
     go run main.go db.go
 
 Have fun! :zap:
