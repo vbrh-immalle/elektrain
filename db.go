@@ -51,11 +51,11 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "Ampère",
 		},
 		{
-			Vraag:    "Van welke grootheid is Ω de afkorting?",
+			Vraag:    "Welke grootheid drukken we uit in Ω?",
 			Antwoord: "weerstand",
 		},
 		{
-			Vraag:    "Welke eenheid stelt eigenlijk Joule per seconde (J/s) voor? (afkorting)",
+			Vraag:    "Welke eenheid is equivalent met Joule per seconde (J/s) (afkorting)?",
 			Antwoord: "W",
 		},
 		{
@@ -64,7 +64,7 @@ func (db *HardCodedDb) Init() {
 		},
 		{
 			Vraag:    "Wat is de S.I.-eenheid voor hoeveelheid elektrische lading (voluit)?",
-			Antwoord: "Coulumb",
+			Antwoord: "Coulomb",
 		},
 		{
 			Vraag:    "Welke grootheid krijg je als je een spanning en een stroom vermenigvuldigt?",
@@ -75,15 +75,15 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "vermogen",
 		},
 		{
-			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers om te bepalen hoeveel energie je verbruikt hebt?",
+			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers om te bepalen hoeveel energie je verbruikt hebt (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Hoe schrijf je de (samengestelde) eenheid kiloWatt-uur?",
+			Vraag:    "Hoe schrijf je de (samengestelde) eenheid kiloWatt-uur (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Welke eenheid gebruiken we voor het aantal ladingen dat per seconde ergens doorstroomt?",
+			Vraag:    "Welke eenheid gebruiken we voor het aantal ladingen dat per seconde ergens doorstroomt (afkorting)?",
 			Antwoord: "A",
 		},
 	}
