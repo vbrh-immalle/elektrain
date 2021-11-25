@@ -35,19 +35,19 @@ type HardCodedDb struct {
 func (db *HardCodedDb) Init() {
 	db.opgaves = []Opgave{
 		{
-			Vraag:    "Wat is de eenheid van spanning (voluit)?",
+			Vraag:    "Wat is de eenheid van\n spanning (voluit)?",
 			Antwoord: "Volt",
 		},
 		{
-			Vraag:    "Wat is de eenheid van spanning (afkorting)?",
+			Vraag:    "Wat is de eenheid van\n spanning (afkorting)?",
 			Antwoord: "V",
 		},
 		{
-			Vraag:    "Wat is de eenheid van elektrische stroom (afkorting)?",
+			Vraag:    "Wat is de eenheid van\n elektrische stroom (afkorting)?",
 			Antwoord: "A",
 		},
 		{
-			Vraag:    "Wat is de eenheid van elektrische stroom (voluit)?",
+			Vraag:    "Wat is de eenheid van\n elektrische stroom (voluit)?",
 			Antwoord: "Ampère",
 		},
 		{
@@ -55,36 +55,44 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "weerstand",
 		},
 		{
-			Vraag:    "Welke eenheid is equivalent met Joule per seconde (J/s) (afkorting)?",
+			Vraag:    "Welke eenheid is equivalent met\n Joule per seconde (J/s) (afkorting)?",
 			Antwoord: "W",
 		},
 		{
-			Vraag:    "Wat is de S.I.-eenheid voor hoeveelheid elektrische lading (afkorting)?",
+			Vraag:    "Wat is de S.I.-eenheid voor\n hoeveelheid elektrische lading (afkorting)?",
 			Antwoord: "C",
 		},
 		{
-			Vraag:    "Wat is de S.I.-eenheid voor hoeveelheid elektrische lading (voluit)?",
+			Vraag:    "Wat is de S.I.-eenheid voor\n hoeveelheid elektrische lading (voluit)?",
 			Antwoord: "Coulomb",
 		},
 		{
-			Vraag:    "Welke grootheid krijg je als je een spanning en een stroom vermenigvuldigt?",
+			Vraag:    "Welke grootheid krijg je als je\n een spanning en een stroom vermenigvuldigt?",
 			Antwoord: "vermogen",
 		},
 		{
-			Vraag:    "Welke grootheid krijg je als je een spanning en een stroom vermenigvuldigt?",
-			Antwoord: "vermogen",
+			Vraag:    "Hoeveel Coulomb (of Ampère-seconde) aan lading\n wordt verplaatst als een lege batterij van 1000 mAh\n helemaal wordt opgeladen (getal)?",
+			Antwoord: "3600",
 		},
 		{
-			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers om te bepalen hoeveel energie je verbruikt hebt (afkorting)?",
+			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers\n om te bepalen hoeveel energie\n je verbruikt hebt (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Hoe schrijf je de (samengestelde) eenheid kiloWatt-uur (afkorting)?",
+			Vraag:    "Hoe schrijf je de (samengestelde) eenheid\n kiloWatt-uur (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Welke eenheid gebruiken we voor het aantal ladingen dat per seconde ergens doorstroomt (afkorting)?",
+			Vraag:    "Welke eenheid gebruiken we voor\n het aantal ladingen dat per seconde\n ergens doorstroomt (afkorting)?",
 			Antwoord: "A",
+		},
+		{
+			Vraag:    "Hoeveel spanning staat er\n over een normale USB-poort (getal)\n (zonder USB-PD (Power Delivery))?",
+			Antwoord: "5",
+		},
+		{
+			Vraag:    "Hoeveel seconden zitten er in 1 uur (getal)?",
+			Antwoord: "3600",
 		},
 	}
 	for i := range db.opgaves {
