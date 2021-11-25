@@ -35,11 +35,11 @@ type HardCodedDb struct {
 func (db *HardCodedDb) Init() {
 	db.opgaves = []Opgave{
 		{
-			Vraag:    "Wat is de eenheid van\n spanning (voluit)?",
+			Vraag:    "Wat is de eenheid van spanning (voluit)?",
 			Antwoord: "Volt",
 		},
 		{
-			Vraag:    "Wat is de eenheid van\n spanning (afkorting)?",
+			Vraag:    "Wat is de eenheid van spanning (afkorting)?",
 			Antwoord: "V",
 		},
 		{
@@ -93,6 +93,22 @@ func (db *HardCodedDb) Init() {
 		{
 			Vraag:    "Hoeveel seconden zitten er in 1 uur (getal)?",
 			Antwoord: "3600",
+		},
+		{
+			Vraag:    "Hoe groot is de netspanning in Europa\n (getal + eenheid)?",
+			Antwoord: "230 V",
+		},
+		{
+			Vraag:    "Hoeveel uur kan je een toestel van 500 W\n op laten staan als je maar 1 kWh\n aan energie mag verbuiken (getal)?",
+			Antwoord: "2",
+		},
+		{
+			Vraag:    "Welke grootheid krijg je als je\n een hoeveelheid lading ([Q] of [mAh] of [As])\n vermenigvuldigt met\n een spanning ([V])?\nTIP: de eenheid is o.a. [kWh]",
+			Antwoord: "energie",
+		},
+		{
+			Vraag:    "Wat is de frequentie van de sinusgolf v.d. wisselspanning en -stroom\nop het Europese elektriciteitsnet\n(waarde + eenheid)?",
+			Antwoord: "50 Hz",
 		},
 	}
 	for i := range db.opgaves {
