@@ -43,11 +43,11 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "V",
 		},
 		{
-			Vraag:    "Wat is de eenheid van\n elektrische stroom (afkorting)?",
+			Vraag:    "Wat is de eenheid van elektrische stroom (afkorting)?",
 			Antwoord: "A",
 		},
 		{
-			Vraag:    "Wat is de eenheid van\n elektrische stroom (voluit)?",
+			Vraag:    "Wat is de eenheid van elektrische stroom (voluit)?",
 			Antwoord: "Ampère",
 		},
 		{
@@ -55,39 +55,39 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "weerstand",
 		},
 		{
-			Vraag:    "Welke eenheid is equivalent met\n Joule per seconde (J/s) (afkorting)?",
+			Vraag:    "Welke eenheid is equivalent met Joule per seconde (J/s) (afkorting)?",
 			Antwoord: "W",
 		},
 		{
-			Vraag:    "Wat is de S.I.-eenheid voor\n hoeveelheid elektrische lading (afkorting)?",
+			Vraag:    "Wat is de S.I.-eenheid voor hoeveelheid elektrische lading (afkorting)?",
 			Antwoord: "C",
 		},
 		{
-			Vraag:    "Wat is de S.I.-eenheid voor\n hoeveelheid elektrische lading (voluit)?",
+			Vraag:    "Wat is de S.I.-eenheid voor hoeveelheid elektrische lading (voluit)?",
 			Antwoord: "Coulomb",
 		},
 		{
-			Vraag:    "Welke grootheid krijg je als je\n een spanning en een stroom vermenigvuldigt?",
+			Vraag:    "Welke grootheid krijg je als je een spanning en een stroom vermenigvuldigt?",
 			Antwoord: "vermogen",
 		},
 		{
-			Vraag:    "Hoeveel Coulomb (of Ampère-seconde) aan lading\n wordt verplaatst als een lege batterij van 1000 mAh\n helemaal wordt opgeladen (getal)?",
+			Vraag:    "Hoeveel Coulomb (of Ampère-seconde) aan lading wordt verplaatst als een lege batterij van 1000 mAh helemaal wordt opgeladen (getal)?",
 			Antwoord: "3600",
 		},
 		{
-			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers\n om te bepalen hoeveel energie\n je verbruikt hebt (afkorting)?",
+			Vraag:    "Welke (samengestelde) eenheid gebruiken energieleveranciers om te bepalen hoeveel energie je verbruikt hebt (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Hoe schrijf je de (samengestelde) eenheid\n kiloWatt-uur (afkorting)?",
+			Vraag:    "Hoe schrijf je de (samengestelde) eenheid kiloWatt-uur (afkorting)?",
 			Antwoord: "kWh",
 		},
 		{
-			Vraag:    "Welke eenheid gebruiken we voor\n het aantal ladingen dat per seconde\n ergens doorstroomt (afkorting)?",
+			Vraag:    "Welke eenheid gebruiken we voor het aantal ladingen dat per seconde ergens doorstroomt (afkorting)?",
 			Antwoord: "A",
 		},
 		{
-			Vraag:    "Hoeveel spanning staat er\n over een normale USB-poort (getal)\n (zonder USB-PD (Power Delivery))?",
+			Vraag:    "Hoeveel spanning staat er over een normale USB-poort (getal) (zonder USB-PD (Power Delivery))?",
 			Antwoord: "5",
 		},
 		{
@@ -95,19 +95,19 @@ func (db *HardCodedDb) Init() {
 			Antwoord: "3600",
 		},
 		{
-			Vraag:    "Hoe groot is de netspanning in Europa\n (getal + eenheid)?",
+			Vraag:    "Hoe groot is de netspanning in Europa (getal + eenheid)?",
 			Antwoord: "230 V",
 		},
 		{
-			Vraag:    "Hoeveel uur kan je een toestel van 500 W\n op laten staan als je maar 1 kWh\n aan energie mag verbuiken (getal)?",
+			Vraag:    "Hoeveel uur kan je een toestel van 500 W op laten staan als je maar 1 kWh aan energie mag verbuiken (getal)?",
 			Antwoord: "2",
 		},
 		{
-			Vraag:    "Welke grootheid krijg je als je\n een hoeveelheid lading ([Q] of [mAh] of [As])\n vermenigvuldigt met\n een spanning ([V])?\nTIP: de eenheid is o.a. [kWh]",
+			Vraag:    "Welke grootheid krijg je als je een hoeveelheid lading ([Q] of [mAh] of [As]) vermenigvuldigt met een spanning ([V])? TIP: de eenheid is o.a. [kWh]",
 			Antwoord: "energie",
 		},
 		{
-			Vraag:    "Wat is de frequentie van de sinusgolf v.d. wisselspanning en -stroom\nop het Europese elektriciteitsnet\n(waarde + eenheid)?",
+			Vraag:    "Wat is de frequentie van de sinusgolf v.d. wisselspanning en -stroomop het Europese elektriciteitsnet(waarde + eenheid)?",
 			Antwoord: "50 Hz",
 		},
 	}
