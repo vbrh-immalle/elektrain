@@ -28,11 +28,20 @@ type TerminalSize struct {
 	Height int
 }
 
+type state int
+
+const (
+	stateEnteringAnswer = iota
+	stateAnswerCorrect
+	stateAnswerWrong
+	stateFinished
+)
+
 type model struct {
 	CurrentTerminalSize TerminalSize
 	Textinput           textinput.Model
 	HuidigeOpgave       Opgave
-	State               string
+	State               state
 	Ticks               int
 }
 
@@ -51,7 +60,7 @@ func initialModel() model {
 	m := model{
 		Textinput:     ti,
 		HuidigeOpgave: opg,
-		State:         "entering answer",
+		State:         stateEnteringAnswer,
 		Ticks:         0,
 	}
 
@@ -75,30 +84,30 @@ func (m model) handleKeyMsg(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		return m, tea.Quit
 	case tea.KeyEnter:
 		switch m.State {
-		case "entering answer":
+		case stateEnteringAnswer:
 			if m.HuidigeOpgave.Antwoord == m.Textinput.Value() {
-				m.State = "answer correct"
+				m.State = stateAnswerCorrect
 				m.HuidigeOpgave.AantalJuisteAntwoorden += 1
 			} else {
-				m.State = "answer wrong"
+				m.State = stateAnswerWrong
 				m.HuidigeOpgave.AantalFouteAntwoorden += 1
 			}
 			db.UpdateOpgave(m.HuidigeOpgave)
 			return m, nil
-		case "answer correct":
+		case stateAnswerCorrect:
 			fallthrough
-		case "answer wrong":
+		case stateAnswerWrong:
 			var hasNext bool
 			m.HuidigeOpgave, hasNext = db.RandomNogJuistTeBeantwoordenOpgave()
 			if hasNext {
-				m.State = "entering answer"
+				m.State = stateEnteringAnswer
 			} else {
 
-				m.State = "finished"
+				m.State = stateFinished
 			}
 			m.Textinput.Reset()
 			return m, nil
-		case "finished":
+		case stateFinished:
 			return m, tea.Quit
 		}
 	}
@@ -117,7 +126,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m.handleKeyMsg(msg)
 	case tickMsg:
 		m.Ticks += 1
-		if m.State != "finished" {
+		if m.State != stateFinished {
 			return m, tick()
 		}
 		return m, nil
@@ -200,23 +209,23 @@ func (m model) View() string {
 	s += variableStyle.Render(strconv.Itoa(db.CountJuistBeantwoord()))
 	s += "]\n"
 
-	if m.State != "finished" {
+	if m.State != stateFinished {
 		s += "\n"
 		s += fmt.Sprintln(vraagStyle.Render(wordwrap.String(m.HuidigeOpgave.Vraag, vraagBoxTextWidth)))
 	}
 
 	switch m.State {
-	case "entering answer":
+	case stateEnteringAnswer:
 		s += antwoordBoxStyle.Render(m.Textinput.View())
 		s += "\n\nDruk"
 		s += variableStyle.Render("ESCAPE")
 		s += " om te stoppen."
-	case "answer correct":
+	case stateAnswerCorrect:
 		s += "\n"
 		s += variableStyle.Render("JUIST!")
 		s += "\n"
 		s += fmt.Sprintf("\nDruk [%s] om verder te gaan.\n", variableStyle.Render("ENTER"))
-	case "answer wrong":
+	case stateAnswerWrong:
 		s += "\n"
 		s += foutStyle.Render("FOUT!")
 		s += "\n"
@@ -224,7 +233,7 @@ func (m model) View() string {
 		s += variableStyle.Render(m.HuidigeOpgave.Antwoord)
 		s += "].\n"
 		s += fmt.Sprintf("\nDruk [%s] om verder te gaan.\n", variableStyle.Render("ENTER"))
-	case "finished":
+	case stateFinished:
 		s += "\nJe kan het! Je kan voor de zekerheid natuurlijk altijd nog eens proberen ;-)\n"
 		s += "\nDruk "
 		s += variableStyle.Render("ENTER")
