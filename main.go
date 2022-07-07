@@ -159,7 +159,7 @@ func (m model) View() string {
 		Foreground(lipgloss.Color("#00CC00")).
 		PaddingLeft(3).
 		PaddingRight(1).
-		Width(6)
+		Width(10)
 
 	vraagBoxMarginLeft := m.CurrentTerminalSize.Width / 8
 	vraagBoxPaddingHor := 5
