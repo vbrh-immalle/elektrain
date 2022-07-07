@@ -11,9 +11,10 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/muesli/reflow/wordwrap"
+	"github.com/vbrh-immalle/elektrain/db"
 )
 
-var db ElekTrainDb
+var elekdb db.ElekTrainDb
 
 type tickMsg struct{}
 
@@ -40,7 +41,7 @@ const (
 type model struct {
 	CurrentTerminalSize TerminalSize
 	Textinput           textinput.Model
-	HuidigeOpgave       Opgave
+	HuidigeOpgave       db.Opgave
 	State               state
 	Ticks               int
 }
@@ -52,7 +53,7 @@ func initialModel() model {
 	ti.CharLimit = 15
 	ti.Width = 15
 
-	opg, hasNext := db.RandomNogJuistTeBeantwoordenOpgave()
+	opg, hasNext := elekdb.RandomNogJuistTeBeantwoordenOpgave()
 	if !hasNext {
 		log.Fatalf("We hebben geen vragen!")
 	}
@@ -92,13 +93,13 @@ func (m model) handleKeyMsg(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 				m.State = stateAnswerWrong
 				m.HuidigeOpgave.AantalFouteAntwoorden += 1
 			}
-			db.UpdateOpgave(m.HuidigeOpgave)
+			elekdb.UpdateOpgave(m.HuidigeOpgave)
 			return m, nil
 		case stateAnswerCorrect:
 			fallthrough
 		case stateAnswerWrong:
 			var hasNext bool
-			m.HuidigeOpgave, hasNext = db.RandomNogJuistTeBeantwoordenOpgave()
+			m.HuidigeOpgave, hasNext = elekdb.RandomNogJuistTeBeantwoordenOpgave()
 			if hasNext {
 				m.State = stateEnteringAnswer
 			} else {
@@ -194,19 +195,19 @@ func (m model) View() string {
 	s += "]\n"
 
 	s += "Totaal aantal gegeven antwoorden: ["
-	s += variableStyle.Render(strconv.Itoa(db.CountTotaalAantalAntwoorden()))
+	s += variableStyle.Render(strconv.Itoa(elekdb.CountTotaalAantalAntwoorden()))
 	s += "]\n"
 
 	s += "                  Aantal opgaven: ["
-	s += variableStyle.Render(strconv.Itoa(db.Count()))
+	s += variableStyle.Render(strconv.Itoa(elekdb.Count()))
 	s += "]\n"
 
 	s += "       Nog juist te beantwoorden: ["
-	s += variableStyle.Render(strconv.Itoa(db.CountOpgavesTeGaan()))
+	s += variableStyle.Render(strconv.Itoa(elekdb.CountOpgavesTeGaan()))
 	s += "]\n"
 
 	s += "        Aantal juiste antwoorden: ["
-	s += variableStyle.Render(strconv.Itoa(db.CountJuistBeantwoord()))
+	s += variableStyle.Render(strconv.Itoa(elekdb.CountJuistBeantwoord()))
 	s += "]\n"
 
 	if m.State != stateFinished {
@@ -244,8 +245,8 @@ func (m model) View() string {
 }
 
 func main() {
-	db = &HardCodedDb{}
-	db.Init()
+	elekdb = &db.HardCodedDb{}
+	elekdb.Init()
 
 	p := tea.NewProgram(initialModel())
 	if err := p.Start(); err != nil {

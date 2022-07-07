@@ -15,7 +15,7 @@ Nadien uitvoeren:
 Of zonder een executable te bouwen:
     
     go get
-    go run main.go db.go
+    go run main.go
 
 Have fun! :zap:
 
